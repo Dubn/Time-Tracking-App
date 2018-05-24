@@ -1,4 +1,5 @@
 using System;
+using TimeTrackingApp.Data;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -7,6 +8,7 @@ namespace TimeTrackingApp
 {
 	public partial class App : Application
 	{
+        static EntryDatabaseController entryDatabase;
 		public App ()
 		{
 			InitializeComponent();
@@ -28,5 +30,17 @@ namespace TimeTrackingApp
 		{
 			// Handle when your app resumes
 		}
+
+        public static EntryDatabaseController EntryDatabase
+        {
+            get
+            {
+                if(entryDatabase == null)
+                {
+                    entryDatabase = new EntryDatabaseController();
+                }
+                return entryDatabase;
+            }
+        }
 	}
 }
